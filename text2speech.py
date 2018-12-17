@@ -1,8 +1,8 @@
 # to speech conversion
 from gtts import gTTS
 import pygame
-import winsound
-import os
+# import winsound
+# import os
 
 def textPlay():
     f = open("output.txt", "r")
@@ -18,7 +18,10 @@ def textPlay():
     # the module that the converted audio should 
     # have a high speed
     myobj = gTTS(text=text, lang=language, slow=False)
-    myobj.save("welcome.wav")
+    myobj.save("welcome.mp3")
+    pygame.init()
+    pygame.mixer.music.load("welcome.mp3")
+    pygame.mixer.music.play()
     '''
     print('Playing')
     winsound.PlaySound("This is real this is me",winsound.SND_FILENAME)
@@ -26,4 +29,4 @@ def textPlay():
     t= pygame.mixer.Sound("welcome.wav")
     t.play()'''
 
-    os.system("start welcome.wav")
+    # os.system("start welcome.mp3")
